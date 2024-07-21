@@ -1,0 +1,59 @@
+#Install HomeBrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+#Use HomeBrew to install python
+brew install python
+
+#Verify installation
+python3 --version
+
+#virtual envirnment
+python3 -m venv myenv
+
+#Activate python enviornment
+source myenv/bin/activate
+
+#Add HomeBrew PATH
+#PATH: echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/yourusername/.zprofile
+#APPLY CHANGES: eval "$(/opt/homebrew/bin/brew shellenv)"
+#Example
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rahmanahmed/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+#VERIFY
+brew --version
+
+## Now we make a python file to test 
+cd ~/Documents
+nano hello.py
+
+## write code here 
+print("Hello, World!")
+
+#ctrl + x > Y > Enter
+
+#Run the file
+python3 hello.py
+
+#We use brew to install everything for example lets install node
+brew install node
+
+#To host python apps we use Flask
+
+pip install flask
+
+nano app.py
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+python app.py
+
